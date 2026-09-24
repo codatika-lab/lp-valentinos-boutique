@@ -306,345 +306,299 @@ Esta evaluación documenta el uso técnico actual. Cualquier cambio que conviert
       *, *::before, *::after { scroll-behavior: auto !important; transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; }
     }
   </style>
-  <style data-visual-style="minimalista">
-    .style-minimalista {
-      --radius-sm: 2px;
-      --radius-md: 4px;
-      --radius-lg: 6px;
-      --shadow-sm: 0 10px 28px rgba(var(--shadow-rgb), 0.06);
-      --shadow-md: 0 24px 60px rgba(var(--shadow-rgb), 0.12);
+  <style data-visual-style="cercano">
+    .style-cercano {
+      --radius-sm: 999px;
+      --radius-md: 24px;
+      --radius-lg: 36px;
+      --shadow-sm: 6px 7px 0 color-mix(in srgb, var(--text) 16%, transparent);
+      --shadow-md: 10px 12px 0 color-mix(in srgb, var(--text) 18%, transparent);
       background: var(--surface);
     }
 
-    .style-minimalista .site-header {
-      border-bottom: 1px solid var(--border);
-      background: color-mix(in srgb, var(--surface) 94%, transparent);
+    .style-cercano .site-header {
+      border-bottom: 2px solid var(--text);
+      background: color-mix(in srgb, var(--surface) 92%, transparent);
       box-shadow: none;
       backdrop-filter: blur(18px);
     }
-    .style-minimalista .site-header-inner { min-height: 72px; }
-    .style-minimalista .logo { height: 40px; }
-    .style-minimalista .site-nav { gap: 28px; }
-    .style-minimalista .site-nav a {
-      min-height: 40px;
-      padding: 0;
-      border-radius: 0;
-      background: transparent;
-      color: var(--text);
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
+    .style-cercano .site-header-inner { min-height: 82px; }
+    .style-cercano .logo { height: 48px; }
+    .style-cercano .logo-text { color: var(--text); font-size: 22px; font-weight: 800; letter-spacing: -0.04em; }
+    .style-cercano .site-nav { gap: 8px; }
+    .style-cercano .site-nav a {
+      min-height: 42px;
+      padding-inline: 16px;
+      border: 1px solid transparent;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.04em;
     }
-    .style-minimalista .site-nav a:hover { background: transparent; color: var(--primary); }
-    .style-minimalista .site-nav a:focus-visible {
-      background: transparent;
-      color: var(--primary);
-      outline: 2px solid #fff;
-      outline-offset: 2px;
-      box-shadow: 0 0 0 4px #111;
+    .style-cercano .site-nav a:hover,
+    .style-cercano .site-nav a:focus-visible {
+      border-color: var(--text);
+      background: var(--secondary);
+      color: var(--on-secondary);
+      box-shadow: 3px 3px 0 var(--text);
     }
 
-    .style-minimalista .hero {
-      min-height: min(760px, calc(100vh - 72px));
-      padding: 120px max(24px, calc((100vw - var(--content-width)) / 2));
+    .style-cercano .hero {
+      min-height: min(780px, calc(100vh - 82px));
+      padding: 128px max(24px, calc((100vw - var(--content-width)) / 2));
       place-items: center start;
       background-color: var(--surface-muted);
-      background-position: center right;
+      background-position: 68% center;
     }
-    .style-minimalista .hero::after {
-      top: 50%;
-      right: clamp(24px, 5vw, 80px);
-      bottom: auto;
-      width: clamp(90px, 12vw, 170px);
-      height: 1px;
-      border-radius: 0;
-      background: color-mix(in srgb, var(--surface-elevated) 72%, transparent);
-      content: "";
+    .style-cercano .hero::after {
+      right: clamp(-100px, -5vw, -40px);
+      bottom: clamp(-110px, -7vw, -55px);
+      width: clamp(260px, 32vw, 470px);
+      height: clamp(260px, 32vw, 470px);
+      border: 3px solid var(--text);
+      border-radius: 48% 52% 38% 62% / 55% 36% 64% 45%;
+      background: var(--secondary);
+      box-shadow: 16px 18px 0 color-mix(in srgb, var(--primary) 78%, transparent);
       filter: none;
-      z-index: 1;
+      transform: rotate(-10deg);
     }
-    .style-minimalista .hero-has-image::before {
-      background: linear-gradient(90deg, var(--surface-muted) 0%, var(--surface-muted) 42%, color-mix(in srgb, var(--surface-muted) 92%, transparent) 52%, color-mix(in srgb, var(--surface-muted) 8%, transparent) 76%);
+    .style-cercano .hero-has-image::before {
+      background:
+        linear-gradient(90deg, color-mix(in srgb, var(--primary) 80%, rgba(0,0,0,.88)) 0%, color-mix(in srgb, var(--primary) 58%, rgba(0,0,0,.74)) 43%, color-mix(in srgb, var(--primary) 18%, transparent) 82%),
+        linear-gradient(0deg, color-mix(in srgb, var(--text) 26%, transparent), transparent 55%);
     }
-    .style-minimalista .hero-has-image { color: var(--text); }
-    .style-minimalista .hero-content {
-      width: min(100%, 610px);
+    .style-cercano .hero-content {
+      width: min(100%, 720px);
       margin: 0;
+      padding: clamp(28px, 5vw, 58px);
+      border: 2px solid color-mix(in srgb, var(--on-primary) 70%, transparent);
+      border-radius: 42px 42px 42px 10px;
+      background: var(--primary);
+      color: var(--on-primary);
+      box-shadow: 12px 14px 0 color-mix(in srgb, var(--secondary) 88%, transparent);
       text-align: left;
+      backdrop-filter: blur(6px);
     }
-    .style-minimalista .hero-eyebrow {
-      margin: 0 0 28px;
-      color: var(--primary);
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 0.2em;
+    .style-cercano .hero-content::before {
+      position: absolute;
+      top: -38px;
+      right: 24px;
+      color: var(--secondary);
+      content: "✦";
+      font-size: clamp(56px, 7vw, 94px);
+      line-height: 1;
+      text-shadow: 3px 3px 0 var(--text);
+      transform: rotate(12deg);
+    }
+    .style-cercano .hero-eyebrow {
+      width: fit-content;
+      margin: 0 0 22px;
+      padding: 8px 14px;
+      border: 2px solid currentColor;
+      border-radius: 999px;
+      color: var(--on-primary);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .12em;
       text-transform: uppercase;
+      transform: rotate(-2deg);
     }
-    .style-minimalista .hero-eyebrow span { color: var(--text-muted); }
-    .style-minimalista .hero-content h1 {
-      max-width: 610px;
-      margin: 0 0 26px;
-      color: var(--text);
-      font-size: clamp(44px, 5.6vw, 76px);
-      font-weight: 600;
+    .style-cercano .hero-content h1 {
+      max-width: 680px;
+      margin: 0 0 24px;
+      color: var(--on-primary);
+      font-size: clamp(45px, 6.4vw, 84px);
+      font-weight: 800;
       letter-spacing: -0.065em;
-      line-height: 0.98;
+      line-height: .96;
     }
-    .style-minimalista .hero-has-image .hero-subtitle,
-    .style-minimalista .hero-subtitle {
-      max-width: 560px;
-      margin: 0 0 34px;
-      color: var(--text-muted);
-      font-size: 17px;
+    .style-cercano .hero-subtitle,
+    .style-cercano .hero-has-image .hero-subtitle {
+      max-width: 600px;
+      margin: 0 0 32px;
+      color: var(--on-primary);
+      font-size: clamp(16px, 1.6vw, 19px);
       line-height: 1.7;
     }
-    .style-minimalista .cta {
-      min-height: 54px;
-      padding: 0 25px;
-      border: 1px solid var(--text);
-      border-radius: 3px;
-      background: var(--text);
-      box-shadow: none;
-      color: var(--on-text);
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
+    .style-cercano .cta {
+      min-height: 58px;
+      padding-inline: 28px;
+      border: 2px solid var(--text);
+      border-radius: 999px;
+      background: var(--secondary);
+      box-shadow: 5px 6px 0 var(--text);
+      color: var(--on-secondary);
+      font-size: 14px;
+      font-weight: 900;
     }
-    .style-minimalista .cta:hover { background: var(--primary); box-shadow: none; color: var(--on-primary); }
+    .style-cercano .cta:hover { transform: translate(-2px, -3px); box-shadow: 8px 9px 0 var(--text); }
 
-    .style-minimalista main { width: min(100% - 48px, var(--content-width)); }
-    .style-minimalista .catalogo,
-    .style-minimalista .gallery,
-    .style-minimalista .testimonios { padding-block: clamp(86px, 9vw, 128px); }
-    .style-minimalista section > h2,
-    .style-minimalista .section-heading,
-    .style-minimalista .horarios-content h2 {
-      margin-bottom: 48px;
-      padding-top: 20px;
-      border-top: 1px solid var(--text);
+    .style-cercano main { width: min(100% - 44px, var(--content-width)); }
+    .style-cercano .catalogo,
+    .style-cercano .gallery,
+    .style-cercano .testimonios { padding-block: clamp(84px, 9vw, 126px); }
+    .style-cercano section > h2,
+    .style-cercano .section-heading,
+    .style-cercano .horarios-content h2 {
+      width: fit-content;
+      max-width: 100%;
+      margin: 0 0 48px;
       color: var(--text);
-      font-size: clamp(32px, 4vw, 50px);
-      font-weight: 600;
+      font-size: clamp(35px, 5vw, 58px);
+      font-weight: 800;
       letter-spacing: -0.055em;
       text-align: left;
     }
+    .style-cercano section > h2::after,
+    .style-cercano .horarios-content h2::after {
+      width: 58%;
+      height: 7px;
+      margin-top: 10px;
+      display: block;
+      border-radius: 999px;
+      background: var(--secondary);
+      content: "";
+      transform: rotate(-1deg);
+    }
 
-    .style-minimalista .grid-items { gap: 54px 24px; }
-    .style-minimalista .card {
-      padding: 0;
+    .style-cercano .grid-items { gap: clamp(24px, 4vw, 42px) 22px; }
+    .style-cercano .card {
+      padding: 12px;
       overflow: visible;
-      border: 0;
-      border-radius: 0;
-      background: transparent;
-      box-shadow: none;
+      border: 2px solid var(--text);
+      border-radius: 28px 28px 28px 8px;
+      background: var(--surface-elevated);
+      box-shadow: 6px 7px 0 var(--text);
     }
-    .style-minimalista .card:hover { border-color: transparent; box-shadow: none; transform: none; }
-    .style-minimalista .product-media {
-      position: relative;
-      margin-bottom: 20px;
-      overflow: hidden;
-      border-radius: 2px;
-      background: color-mix(in srgb, var(--primary) 7%, var(--surface-muted));
-    }
-    .style-minimalista[data-product-shape="rectangular"] .product-media { border-radius: 2px; }
-    .style-minimalista[data-product-shape="redondeada"] .product-media { border-radius: 20px; }
-    .style-minimalista .card img,
-    .style-minimalista .card-media-placeholder {
-      margin: 0;
-      border-radius: 0;
-      filter: saturate(0.82) contrast(1.03);
-      transform: scale(1.001);
-    }
-    .style-minimalista .card:hover img { filter: saturate(1); transform: scale(1.035); }
-    .style-minimalista .product-number {
+    .style-cercano .card:nth-child(3n + 2) { transform: translateY(22px) rotate(1deg); }
+    .style-cercano .card:nth-child(3n) { transform: rotate(-1deg); }
+    .style-cercano .card:hover { transform: translate(-3px, -6px) rotate(0); border-color: var(--text); box-shadow: 10px 12px 0 var(--secondary); }
+    .style-cercano .product-media { overflow: hidden; border-radius: 20px 20px 20px 5px; background: var(--surface-muted); }
+    .style-cercano[data-product-shape="rectangular"] .product-media { border-radius: 5px; }
+    .style-cercano[data-product-shape="redondeada"] .product-media { border-radius: 20px 20px 20px 5px; }
+    .style-cercano .card img,
+    .style-cercano .card-media-placeholder { margin: 0; border-radius: 0; filter: saturate(1.08) contrast(1.02); }
+    .style-cercano .card:hover img { transform: scale(1.07) rotate(1deg); }
+    .style-cercano .product-copy { padding: 22px 8px 10px; }
+    .style-cercano .product-overline { margin-bottom: 8px; display: block; color: var(--primary); font-size: 10px; font-weight: 900; letter-spacing: .11em; text-transform: uppercase; }
+    .style-cercano .product-number {
       position: absolute;
-      top: 12px;
-      right: 12px;
-      width: 34px;
-      height: 34px;
+      top: 14px;
+      right: 14px;
+      width: 42px;
+      height: 42px;
       display: grid;
       place-items: center;
-      border: 1px solid color-mix(in srgb, var(--text) 18%, transparent);
-      background: color-mix(in srgb, var(--surface-elevated) 90%, transparent);
-      color: var(--text);
-      font-size: 10px;
-      font-weight: 700;
-      backdrop-filter: blur(8px);
+      border: 2px solid var(--text);
+      border-radius: 50%;
+      background: var(--secondary);
+      box-shadow: 3px 3px 0 var(--text);
+      color: var(--on-secondary);
+      font-size: 11px;
+      font-weight: 900;
     }
-    .style-minimalista .product-copy { position: relative; padding-right: 20px; }
-    .style-minimalista .product-overline {
-      margin: 0 0 8px;
-      display: block;
-      color: var(--primary);
-      font-size: 9px;
-      font-weight: 700;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-    }
-    .style-minimalista .card h3 {
-      margin: 0 0 9px;
-      font-size: clamp(17px, 1.7vw, 21px);
-      font-weight: 600;
-      letter-spacing: -0.035em;
-    }
-    .style-minimalista .product-description {
-      min-height: 46px;
-      margin: 0 0 16px;
-      color: var(--text-muted);
-      font-size: 13px;
-      line-height: 1.65;
-    }
-    .style-minimalista.skin-tienda-catalogo .precio {
-      margin: 0;
-      padding-top: 13px;
-      border-top: 1px solid var(--border);
-      color: var(--text);
-      font-size: 15px;
-      font-weight: 700;
-    }
+    .style-cercano .card h3 { margin: 0 0 9px; font-size: clamp(18px, 2vw, 23px); font-weight: 800; letter-spacing: -.035em; }
+    .style-cercano .product-description { min-height: 52px; margin: 0 0 17px; color: var(--text-muted); font-size: 14px; }
+    .style-cercano.skin-tienda-catalogo .precio { width: fit-content; margin: 0; padding: 8px 13px; border-radius: 999px; background: var(--primary); color: var(--on-primary); font-size: 15px; font-weight: 900; }
 
-    .style-minimalista .promo { padding-block: clamp(86px, 9vw, 124px); }
-    .style-minimalista .promo > h2 { width: min(100%, var(--content-width)); margin-inline: auto; }
-    .style-minimalista .promo-carousel {
-      max-width: var(--content-width);
-      border: 1px solid var(--border);
-      box-shadow: none;
-    }
-    .style-minimalista .promo-slide img { filter: saturate(0.82) contrast(1.04); }
-    .style-minimalista .promo-slide-caption {
-      padding: 90px 30px 28px;
-      background: linear-gradient(0deg, color-mix(in srgb, var(--text) 54%, rgba(0, 0, 0, 0.82)), transparent);
-      font-size: 16px;
-      font-weight: 600;
-    }
-    .style-minimalista .promo-nav { border-color: var(--border); border-radius: 2px; box-shadow: none; }
-    .style-minimalista .promo-dot { width: 24px; height: 2px; border-radius: 0; }
-    .style-minimalista .promo-dot.is-active { background: var(--primary); transform: none; }
+    .style-cercano .promo { padding-block: clamp(92px, 10vw, 132px); background: var(--surface-muted); }
+    .style-cercano .promo > h2 { width: min(100%, var(--content-width)); margin-inline: auto; }
+    .style-cercano .promo-carousel { max-width: 1040px; border: 3px solid var(--text); background: var(--text); box-shadow: 10px 12px 0 var(--text); }
+    .style-cercano .promo-slide img { filter: saturate(1.08) contrast(1.02); }
+    .style-cercano .promo-slide-caption { padding: 100px 34px 30px; background: linear-gradient(0deg, color-mix(in srgb, var(--primary) 68%, rgba(0,0,0,.84)), transparent); font-size: clamp(17px, 2vw, 24px); font-weight: 800; }
+    .style-cercano .promo-nav { border: 2px solid var(--text); background: var(--secondary); box-shadow: 4px 4px 0 var(--text); color: var(--on-secondary); }
+    .style-cercano .promo-nav:hover { background: var(--surface); transform: translateY(-50%) scale(1.08) rotate(-4deg); }
+    .style-cercano .promo-dot { width: 24px; height: 8px; border: 1px solid var(--text); border-radius: 999px; background: var(--surface); }
+    .style-cercano .promo-dot.is-active { background: var(--secondary); transform: scaleX(1.22); }
 
-    .style-minimalista .gallery-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
-    .style-minimalista.skin-tienda-catalogo .gallery-item {
-      aspect-ratio: 4 / 5;
-      border-radius: 2px;
-      background: color-mix(in srgb, var(--primary) 7%, var(--surface-muted));
-    }
-    .style-minimalista .gallery-item img { filter: saturate(0.78) contrast(1.05); }
-    .style-minimalista .gallery-item figcaption {
-      padding: 60px 16px 14px;
-      background: linear-gradient(0deg, color-mix(in srgb, var(--text) 54%, rgba(0, 0, 0, 0.78)), transparent);
-      font-size: 10px;
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-    }
+    .style-cercano .gallery-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+    .style-cercano.skin-tienda-catalogo .gallery-item { aspect-ratio: 1 / 1; border: 2px solid var(--text); border-radius: 28px 28px 8px 28px; box-shadow: 5px 6px 0 var(--text); }
+    .style-cercano .gallery-item:nth-child(even) { transform: translateY(18px); }
+    .style-cercano .gallery-item img { filter: saturate(1.08); }
+    .style-cercano .gallery-item figcaption { padding: 64px 18px 16px; background: linear-gradient(0deg, color-mix(in srgb, var(--primary) 74%, rgba(0,0,0,.78)), transparent); font-weight: 800; }
 
-    .style-minimalista .testimonios-grid { gap: 34px; }
-    .style-minimalista[data-testimonial-layout="simetrica"] .testimonios-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    .style-minimalista[data-testimonial-layout="simetrica"] .testimonio:last-child { grid-column: 1 / -1; width: calc(50% - 17px); justify-self: center; }
-    .style-minimalista .testimonio {
-      min-height: 290px;
-      padding: 0 0 0 22px;
-      border: 0;
-      border-left: 2px solid var(--primary);
-      border-radius: 0;
-      background: transparent;
-      box-shadow: none;
-    }
-    .style-minimalista .testimonio:hover { border-color: var(--text); box-shadow: none; transform: translateY(-3px); }
-    .style-minimalista .avatar,
-    .style-minimalista .avatar-placeholder { width: 48px; height: 48px; border-radius: 2px; filter: grayscale(1); }
-    .style-minimalista .testimonio cite { font-size: 14px; font-weight: 600; }
-    .style-minimalista .testimonio-producto { color: var(--primary); font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; }
-    .style-minimalista .estrellas { color: var(--text); font-size: 11px; }
-    .style-minimalista .testimonio > p:last-child { color: var(--text-muted); font-size: 14px; line-height: 1.75; }
+    .style-cercano .testimonios-grid { gap: 22px; }
+    .style-cercano[data-testimonial-layout="simetrica"] .testimonios-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .style-cercano .testimonio { min-height: 285px; padding: 28px; border: 2px solid var(--text); border-radius: 30px 30px 8px 30px; background: var(--surface-elevated); box-shadow: 6px 7px 0 var(--text); }
+    .style-cercano .testimonio:nth-child(even) { background: var(--surface-muted); transform: rotate(1deg); }
+    .style-cercano .testimonio:hover { border-color: var(--text); box-shadow: 9px 10px 0 var(--secondary); transform: translateY(-5px) rotate(0); }
+    .style-cercano .avatar,
+    .style-cercano .avatar-placeholder { width: 58px; height: 58px; border: 2px solid var(--text); box-shadow: 3px 3px 0 var(--secondary); }
+    .style-cercano .testimonio cite { font-size: 15px; font-weight: 900; }
+    .style-cercano .testimonio-producto { color: var(--primary); font-size: 11px; font-weight: 900; text-transform: uppercase; }
+    .style-cercano .estrellas { color: var(--secondary); text-shadow: 1px 1px 0 var(--text); }
+    .style-cercano .testimonio > p:last-child { color: var(--text-muted); font-size: 14px; line-height: 1.75; }
 
-    .style-minimalista .horarios-ubicacion {
-      padding-block: clamp(86px, 9vw, 126px);
-      border-color: var(--border);
-      text-align: left;
-    }
-    .style-minimalista .horarios-content {
-      max-width: var(--content-width);
-      display: grid;
-      grid-template-columns: minmax(220px, 0.72fr) minmax(0, 1.28fr);
-      gap: 70px;
-      align-items: start;
-    }
-    .style-minimalista .horarios-content h2 { margin: 0; }
-    .style-minimalista .contact-meta { grid-column: 1; margin: 30px 0 0; align-items: stretch; flex-direction: column; }
-    .style-minimalista .contact-meta-item {
-      padding: 13px 0;
-      border: 0;
-      border-bottom: 1px solid var(--border);
-      border-radius: 0;
-      background: transparent;
-      color: var(--text);
-      font-size: 13px;
-      font-weight: 600;
-    }
-    .style-minimalista .maps-embed {
-      grid-column: 2;
-      grid-row: 1 / span 2;
-      height: 470px;
-      margin: 0;
-      border: 1px solid var(--border);
-      border-radius: 4px;
-      box-shadow: none;
-      filter: grayscale(0.82) contrast(0.96);
-    }
-    .style-minimalista[data-map-shape="rectangular"] .maps-embed { border-radius: 4px; }
-    .style-minimalista[data-map-shape="suave"] .maps-embed { border-radius: 18px; }
+    .style-cercano .horarios-ubicacion { padding-block: clamp(88px, 10vw, 130px); border-block: 2px solid var(--text); text-align: left; }
+    .style-cercano .horarios-content { max-width: var(--content-width); display: grid; grid-template-columns: minmax(240px, .72fr) minmax(0, 1.28fr); gap: 58px; align-items: start; }
+    .style-cercano .horarios-content h2 { margin: 0; }
+    .style-cercano .contact-meta { grid-column: 1; margin: 28px 0 0; align-items: flex-start; flex-direction: column; }
+    .style-cercano .contact-meta-item { padding: 12px 16px; border: 2px solid var(--text); border-radius: 999px; background: var(--surface-elevated); box-shadow: 3px 3px 0 var(--text); font-size: 13px; font-weight: 800; }
+    .style-cercano .maps-embed { grid-column: 2; grid-row: 1 / span 2; height: 470px; margin: 0; border: 3px solid var(--text); box-shadow: 9px 10px 0 var(--text); filter: saturate(.78) contrast(.96); }
+    .style-cercano[data-map-shape="rectangular"] .maps-embed { border-radius: 5px; }
+    .style-cercano[data-map-shape="suave"] .maps-embed { border-radius: 30px 30px 8px 30px; }
 
-    .style-minimalista .floating-btn {
-      border-color: rgba(255, 255, 255, 0.5);
-      border-radius: 3px;
-      background: var(--floating-btn-color);
-      box-shadow: 0 12px 26px rgba(var(--shadow-rgb), 0.18);
+    .style-cercano .floating-btn { border: 2px solid var(--text); background: var(--floating-btn-color); box-shadow: 5px 6px 0 var(--text); }
+    .style-cercano .floating-btn:hover { transform: translate(-2px, -4px) rotate(-4deg); box-shadow: 8px 9px 0 var(--text); }
+    .style-cercano footer { border-top: 3px solid var(--text); background: var(--footer-surface); }
+    .style-cercano footer nav a { font-size: 12px; font-weight: 800; }
+    .style-cercano .rrss-link { border: 2px solid color-mix(in srgb, var(--on-footer) 72%, transparent); box-shadow: 3px 3px 0 color-mix(in srgb, var(--secondary) 82%, transparent); }
+
+    .style-cercano :where(a, button, summary):focus-visible {
+      outline: 3px solid var(--surface);
+      outline-offset: 3px;
+      box-shadow: 0 0 0 6px var(--text);
     }
-    .style-minimalista footer { border-top: 1px solid color-mix(in srgb, var(--on-footer) 18%, transparent); background: var(--footer-surface); color: var(--on-footer-muted); }
-    .style-minimalista footer nav a { font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; }
-    .style-minimalista .rrss-link { border-radius: 3px; }
 
     @media (max-width: 900px) {
-      .style-minimalista .site-nav { gap: 14px; }
-      .style-minimalista .horarios-content { gap: 36px; }
+      .style-cercano .card:nth-child(3n + 2) { transform: none; }
+      .style-cercano .horarios-content { gap: 34px; }
     }
-
     @media (max-width: 767px) {
-      .style-minimalista .site-header-panel--mobile { border-radius: 4px; background: var(--surface-elevated); }
-      .style-minimalista .site-nav { gap: 0; }
-      .style-minimalista .site-nav a { padding-inline: 12px; }
-      .style-minimalista .hero {
-        min-height: 690px;
-        padding: 104px 28px;
-        background-position: 62% center;
-      }
-      .style-minimalista .hero-has-image::before { background: color-mix(in srgb, var(--surface-muted) 90%, transparent); }
-      .style-minimalista .hero::after { display: none; }
-      .style-minimalista .hero-content h1 { font-size: clamp(40px, 12vw, 60px); }
-      .style-minimalista main { width: min(100% - 30px, var(--content-width)); }
-      .style-minimalista .promo { padding-inline: 15px; }
-      .style-minimalista .gallery-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      .style-minimalista .testimonios-grid { grid-template-columns: 1fr; }
-      .style-minimalista[data-testimonial-layout="simetrica"] .testimonios-grid { grid-template-columns: 1fr; }
-      .style-minimalista[data-testimonial-layout="simetrica"] .testimonio:last-child { grid-column: auto; width: auto; }
-      .style-minimalista .testimonio { min-height: 0; }
-      .style-minimalista .horarios-content { grid-template-columns: 1fr; }
-      .style-minimalista .maps-embed { grid-column: 1; grid-row: auto; height: 390px; }
+      .style-cercano .site-header-panel--mobile { border: 2px solid var(--text); border-radius: 22px 22px 6px 22px; box-shadow: 5px 6px 0 var(--text); }
+      .style-cercano .site-nav { gap: 2px; }
+      .style-cercano .hero { min-height: 700px; padding: 106px 26px; background-position: 60% center; }
+      .style-cercano .hero-content { padding: 30px 24px; border-radius: 30px 30px 30px 8px; box-shadow: 8px 9px 0 var(--secondary); }
+      .style-cercano .hero-content::before { top: -32px; right: 16px; }
+      .style-cercano .hero-content h1 { font-size: clamp(40px, 12vw, 61px); }
+      .style-cercano main { width: min(100% - 30px, var(--content-width)); }
+      .style-cercano .card,
+      .style-cercano .card:nth-child(3n) { transform: none; }
+      .style-cercano .promo { padding-inline: 16px; }
+      .style-cercano .gallery-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .style-cercano .gallery-item:nth-child(even) { transform: none; }
+      .style-cercano .testimonios-grid,
+      .style-cercano[data-testimonial-layout="simetrica"] .testimonios-grid { grid-template-columns: 1fr; }
+      .style-cercano .testimonio { min-height: 0; }
+      .style-cercano .horarios-content { grid-template-columns: 1fr; }
+      .style-cercano .maps-embed { grid-column: 1; grid-row: auto; height: 390px; }
     }
-
     @media (max-width: 420px) {
-      .style-minimalista .grid-items { gap: 40px 12px; }
-      .style-minimalista .card { padding: 0; border-radius: 0; }
-      .style-minimalista .product-copy { padding-right: 0; }
-      .style-minimalista .card h3 { font-size: 15px; }
-      .style-minimalista .product-description { min-height: 0; font-size: 11px; }
-      .style-minimalista.skin-tienda-catalogo .precio { font-size: 14px; }
+      .style-cercano .grid-items { gap: 18px 10px; }
+      .style-cercano .card { padding: 7px; border-radius: 18px 18px 18px 6px; box-shadow: 4px 5px 0 var(--text); }
+      .style-cercano .product-copy { padding: 16px 5px 7px; }
+      .style-cercano .card h3 { font-size: 15px; }
+      .style-cercano .product-description { min-height: 0; font-size: 11px; }
+      .style-cercano.skin-tienda-catalogo .precio { padding: 6px 8px; font-size: 13px; }
+      .style-cercano .product-number { top: 8px; right: 8px; width: 32px; height: 32px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .style-cercano .cta:hover,
+      .style-cercano .floating-btn:hover,
+      .style-cercano .rrss-link:hover,
+      .style-cercano .card,
+      .style-cercano .card:nth-child(3n + 2),
+      .style-cercano .card:nth-child(3n),
+      .style-cercano .card:hover,
+      .style-cercano .testimonio:nth-child(even),
+      .style-cercano .testimonio:hover { transform: none; }
+      .style-cercano .promo-nav:hover { transform: translateY(-50%); }
+      .style-cercano .card:hover img,
+      .style-cercano .gallery-item:hover img { transform: none; }
     }
   </style>
 </head>
-<body class="skin-tienda-catalogo style-minimalista" data-skin="tienda_catalogo" data-plan="premium" data-visual-style="minimalista" data-product-shape="rectangular" data-map-shape="rectangular" data-carousel-shape="rectangular" data-testimonial-layout="rejilla" data-animation-intensity="impactante">
+<body class="skin-tienda-catalogo style-cercano" data-skin="tienda_catalogo" data-plan="premium" data-visual-style="cercano" data-product-shape="redondeada" data-map-shape="suave" data-carousel-shape="organica" data-testimonial-layout="rejilla" data-animation-intensity="impactante">
   <header class="site-header">
     <div class="site-header-inner">
       <a class="brand-link" href="#inicio" aria-label="Ir al inicio"><img class="logo" src="https://ui-avatars.com/api/?name=Valentinos+Boutique&amp;background=dc6a9d&amp;color=fff5fa&amp;size=128&amp;bold=true&amp;rounded=true" alt="Valentinos Boutique" /></a>
